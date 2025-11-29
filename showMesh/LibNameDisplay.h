@@ -18,7 +18,6 @@ public slots:
     void on_BTclear_clicked();
     void on_BTreleaseCopy_clicked();
     void on_BTdebugCopy_clicked();
-    void on_BTclear_clicked();
 
 private:
     Ui_libToolWidget* ui;
