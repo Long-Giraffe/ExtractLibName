@@ -1,15 +1,23 @@
 #include "MeshViewerWidget.h"
+#include <vtkInteractorStyleTrackballCamera.h>
+#include "vtkImageData.h"
+#include "vtkNew.h"
 
-MeshViewerWidget::MeshViewerWidget(QWidget* parent)
+MeshViewerWidget::MeshViewerWidget(QWidget* parent):QVTKOpenGLNativeWidget(parent),ui(new Ui::vtkShowWidget)   
 {
+    ui->setupUi(this);
+
+   auto vtkWidget = new QVTKOpenGLNativeWidget(this);
+    ui->verticalLayout->addWidget(vtkWidget);
+
+    rendererManager = new RendererManager(vtkWidget->renderWindow());
+  vtkNew<vtkInteractorStyleTrackballCamera> style;
+    vtkWidget->interactor()->SetInteractorStyle(style);
 }
 
-void MeshViewerWidget::setMesh(vtkSmartPointer<vtkPolyData> mesh)
+void MeshViewerWidget::setImageData(vtkNew<vtkImageData>& imageData)
 {
-}
-
-void MeshViewerWidget::setColorMap(vtkSmartPointer<vtkLookupTable> lut)
-{
+    rendererManager->setImageData(imageData);
 }
 
 void MeshViewerWidget::enableAxes(bool enabled)

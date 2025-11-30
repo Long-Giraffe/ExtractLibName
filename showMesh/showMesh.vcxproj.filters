@@ -18,9 +18,6 @@
     <ClCompile Include="LibNameDisplay.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>资源文件</Filter>
-    </ClCompile>
     <ClCompile Include="MeshViewerWidget.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -39,18 +36,15 @@
     <ClCompile Include="RendererManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="DataProcess.cpp">
+    <ClCompile Include="MeshGenerator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LibNameDisplay.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="ColorMapManager.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="AxesManager.h">
@@ -65,7 +59,7 @@
     <ClInclude Include="RendererManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="DataProcess.h">
+    <ClInclude Include="MeshGenerator.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -75,8 +69,8 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="vtkShowMesh.rc">
+    <QtUic Include="vtkMeshShow.ui">
       <Filter>资源文件</Filter>
-    </ResourceCompile>
+    </QtUic>
   </ItemGroup>
 </Project>

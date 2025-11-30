@@ -1,5 +1,9 @@
 #pragma once
-class ColorMapManager
-{
+#include <vtkLookupTable.h>
+
+class ColorMapManager {
+public:
+    static vtkNew<vtkLookupTable> jet();
 };
+
 
