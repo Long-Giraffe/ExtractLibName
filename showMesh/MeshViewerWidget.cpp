@@ -3,17 +3,23 @@
 #include "vtkImageData.h"
 #include "vtkNew.h"
 
-MeshViewerWidget::MeshViewerWidget(QWidget* parent):QVTKOpenGLNativeWidget(parent),ui(new Ui::vtkShowWidget)   
+MeshViewerWidget::MeshViewerWidget(QWidget* parent)
+    : QVTKOpenGLNativeWidget(parent), ui(new Ui::vtkShowWidget)
 {
     ui->setupUi(this);
 
-   auto vtkWidget = new QVTKOpenGLNativeWidget(this);
+    auto vtkWidget = new QVTKOpenGLNativeWidget(this);
     ui->verticalLayout->addWidget(vtkWidget);
 
     rendererManager = new RendererManager(vtkWidget->renderWindow());
-  vtkNew<vtkInteractorStyleTrackballCamera> style;
+
+    // 使用自定义样式
+    vtkNew<ScaleInteractorStyle> style;
+    style->SetRendererManager(rendererManager);
     vtkWidget->interactor()->SetInteractorStyle(style);
+
 }
+
 
 void MeshViewerWidget::setImageData(vtkNew<vtkImageData>& imageData)
 {
